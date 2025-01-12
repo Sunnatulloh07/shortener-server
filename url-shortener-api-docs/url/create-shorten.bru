@@ -1,0 +1,18 @@
+meta {
+  name: create-shorten
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/api/url/shorten
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "originalUrl":"https://jsonplaceholder.typicode.com/posts",
+    "method":"GET"
+  }
+}

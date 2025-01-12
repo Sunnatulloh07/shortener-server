@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongo_db:27017/url-shortener
+    depends_on:
+      - mongo_db
+    restart: always
+
+  mongo_db:
+    image: mongo:latest
+    container_name: mongodb
+    volumes:
+      - mongo_db:/data/db
+    restart: always
+
+volumes:
+  mongo_db: {}
